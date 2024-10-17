@@ -80,14 +80,23 @@ import numpy as np
 # count = 20
 #
 # data = np.random.randint(0, max_value, count)
-# print("Список:",data)
+# print("Список:", data)
 #
-# bins = np.arange(0, max_value, max_value/10)
-# hist, _ = np.histogram(data, bins)
+# bins = 10
 #
-# probabilities = hist / len(data)
+# min_val, max_val = min(data), max(data)
+# bin_size = (max_val - min_val) / bins
+# histogram = [0] * bins
 #
-# print("Количество значений в бинах: ", hist)
+# for value in data:
+#     bin_index = int((value - min_val) / bin_size)
+#     if bin_index == bins:
+#         bin_index -= 1
+#     histogram[bin_index] += 1
+#
+# probabilities = [count / len(data) for count in histogram]
+#
+# print("Количество значений в бинах: ", histogram)
 # print("Вероятности: ", probabilities)
 
 # 3
@@ -271,6 +280,12 @@ import numpy as np
 #        s += str(v) + "\t"
 #     print(s)
 #
+# def sum_matrix(matrix):
+#     s = 0
+#     for row in matrix:
+#         for v in row:
+#             s += v
+#     return s
 #
 # def sum_diag_matrix(matrix):
 #     n = len(matrix)
@@ -309,7 +324,7 @@ import numpy as np
 #                     sub_m.append(m[ii][jj] + kernel[ii][jj])
 #                 m_mult_k.append(sub_m)
 #
-#             result[i][j] = sum_diag_matrix(m_mult_k) #только если kernel 2x2
+#             result[i][j] = sum_matrix(m_mult_k)
 #
 #     return result
 #
