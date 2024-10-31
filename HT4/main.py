@@ -34,7 +34,7 @@ for i in range(5, 200):
 
     matrix = matrix_tools.create_empty_matrix(i, i)
 
-    k = matrix_tools.create_empty_matrix(i-4, i-4)
+    k = matrix_tools.create_empty_matrix(i - 4, i - 4)
     matrix_tools.fold_2d(matrix, k)
 
     end_time = time.time()
