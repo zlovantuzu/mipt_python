@@ -67,7 +67,6 @@ def save_image_to_file(image, filepath):
     else:
         raise ValueError("Неподдерживаемый тип изображения для сохранения.")
 
-    # Сохраняем файл
     pil_image.save(filepath)
     print(f"Изображение сохранено в файл: {filepath}")
 
