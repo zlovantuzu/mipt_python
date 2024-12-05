@@ -73,16 +73,35 @@ def save_image_to_file(image, filepath):
 
 palette = {i: (i, 255 - i, i // 2) for i in range(256)}
 
-binary_image = read_image_from_file("binary_image.png", "binary")
-color_binary_image = ImageConverter.binary_to_color(binary_image, palette)
-save_image_to_file(color_binary_image, "color_image_output.png")
+try:
+    binary_image = read_image_from_file("binary_image.png", "binary")
+    color_binary_image = ImageConverter.binary_to_color(binary_image, palette)
+    save_image_to_file(color_binary_image, "color_image_output.png")
+except Exception as e:
+    print("Ошибка в обработке файла: binary_image.png")
+    print(e)
+else:
+    print("Файл: 'binary_image.png' обработан успешно")
 
-monochrome_image = read_image_from_file("monochrome_image.png", "monochrome")
-bin_mono_image = ImageConverter.monochrome_to_binary(monochrome_image)
-save_image_to_file(bin_mono_image, "binary_image_output.png")
+try:
+    monochrome_image = read_image_from_file("monochrome_image.png", "monochrome")
+    bin_mono_image = ImageConverter.monochrome_to_binary(monochrome_image)
+    save_image_to_file(bin_mono_image, "binary_image_output.png")
+except Exception as e:
+    print("Ошибка в обработке файла: monochrome_image.png")
+    print(e)
+else:
+    print("Файл: 'monochrome_image.png' обработан успешно")
 
-color_image = read_image_from_file("color_image.png", "color")
-mono_color_image = ImageConverter.color_to_monochrome(color_image)
-save_image_to_file(mono_color_image, "mono_image_output.png")
-
+try:
+    color_image = read_image_from_file("color_image.png", "color")
+    mono_color_image = ImageConverter.color_to_monochrome(color_image)
+    save_image_to_file(mono_color_image, "mono_image_output.png")
+except Exception as e:
+    print("Ошибка в обработке файла: color_image.png")
+    print(e)
+else:
+    print("Файл: 'color_image.png' обработан успешно")
+finally:
+    print("Выход из функции")
 
